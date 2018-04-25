@@ -10,17 +10,21 @@ class CoordinateChanger():
         self.lat = lat
         self.lng = lng
 
-    def make_request_url(self):
+    def _make_request_url(self):
         return "{}&lat={}&lon={}".format(self.base, self.lat, self.lng)
 
-    def send_request(self, url):
-        response = urlopen(url)
-        doc = response.read()
-        return doc
+    def _send_request(self, url):
+        try:
+            response = urlopen(url)
+            doc = response.read()
+            return doc
+        except Exception as e:
+            print(e)
+            return None
 
     def change_coordinate_to_city(self):
-        url = self.make_request_url()
-        return self.send_request(url)
+        url = self._make_request_url()
+        return self._send_request(url)
 
 if __name__ == "__main__":
     coordinateChanger = CoordinateChanger("34.7604130", "135.6269390")
