@@ -1,13 +1,12 @@
 from urllib.request import *
 from urllib.parse import *
 import json
+import argparse
 
 
 class CoordinateChanger():
     def __init__(self, lat, lng):
         self.base = "https://www.finds.jp/ws/rgeocode.php?json"
-        # self.lat = "34.7604130"
-        # self.lng = "135.6269390"
         self.lat = lat
         self.lng = lng
 
@@ -39,7 +38,15 @@ class CoordinateChanger():
         mname = value[-1]
         return mname
 
-if __name__ == "__main__":
-    coordinateChanger = CoordinateChanger("34.7604130", "135.6269390")
+def main(args):
+    coordinateChanger = CoordinateChanger(args.latitude, args.longtitude)
     result = coordinateChanger.get_mname()
     print(result)
+
+if __name__ == "__main__":
+    ps = argparse.ArgumentParser()
+    ps.add_argument("--latitude", type=float,default = 35.450918)
+    ps.add_argument("--longtitude",type=float,default = 139.631073)
+    args = ps.parse_args()
+    
+    main(args)
