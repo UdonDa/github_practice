@@ -27,12 +27,19 @@ class CoordinateChanger():
         url = self._make_request_url()
         return self._send_request(url)
 
-    def get_response(self):
+    def _get_response(self):
         JSON = self._change_coordinate_to_city()
         data = json.loads(JSON)
         return data
+    
+    def get_mname(self):
+        JSONFILE = self._get_response()
+        values = JSONFILE['result']['municipality']['mname']
+        value = values.split(" ")
+        mname = value[-1]
+        return mname
 
 if __name__ == "__main__":
     coordinateChanger = CoordinateChanger("34.7604130", "135.6269390")
-    result = coordinateChanger.get_response()
+    result = coordinateChanger.get_mname()
     print(result)
