@@ -1,5 +1,6 @@
 from urllib.request import *
 from urllib.parse import *
+import json
 
 
 class CoordinateChanger():
@@ -22,11 +23,16 @@ class CoordinateChanger():
             print(e)
             return None
 
-    def change_coordinate_to_city(self):
+    def _change_coordinate_to_city(self):
         url = self._make_request_url()
         return self._send_request(url)
 
+    def get_response(self):
+        JSON = self._change_coordinate_to_city()
+        data = json.loads(JSON)
+        return data
+
 if __name__ == "__main__":
     coordinateChanger = CoordinateChanger("34.7604130", "135.6269390")
-    result = coordinateChanger.change_coordinate_to_city()
+    result = coordinateChanger.get_response()
     print(result)
