@@ -3,25 +3,26 @@ from urllib.parse import *
 
 
 class CoordinateChanger():
-    def __init__(self, base, lat, lng):
-        # self.base = "https://www.finds.jp/ws/rgeocode.php?json"
+    def __init__(self, lat, lng):
+        self.base = "https://www.finds.jp/ws/rgeocode.php?json"
         # self.lat = "34.7604130"
         # self.lng = "135.6269390"
-        self.base = base
         self.lat = lat
         self.lng = lng
 
-    def make_request_url(self, base, lat, lng):
-        return "{}&lat={}&lon={}".format(base, lat, lng)
+    def make_request_url(self):
+        return "{}&lat={}&lon={}".format(self.base, self.lat, self.lng)
 
-    def change_coordinate_to_city(self, base, lat, lng):
-        url = self.make_request_url(base, lat, lng)
+    def send_request(self, url):
         response = urlopen(url)
         doc = response.read()
         return doc
 
+    def change_coordinate_to_city(self):
+        url = self.make_request_url()
+        return self.send_request(url)
 
 if __name__ == "__main__":
-    coordinateChanger = CoordinateChanger("https://www.finds.jp/ws/rgeocode.php?json", "34.7604130", "135.6269390")
-    result = coordinateChanger.change_coordinate_to_city("https://www.finds.jp/ws/rgeocode.php?json", "34.7604130", "135.6269390")
+    coordinateChanger = CoordinateChanger("34.7604130", "135.6269390")
+    result = coordinateChanger.change_coordinate_to_city()
     print(result)
