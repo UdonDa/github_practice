@@ -41,8 +41,8 @@ So, let's step through the necessary steps one by one!!
 [#6](https://github.com/UdonDa/github_practice/issues/6)
 
 ## Additional tasks
-1. Which commit added the line?　　
-Choose the lines you care about and try git blame!　　
+1. Which commit added the line?  
+Choose the lines you care about and try git blame!  
 
 2. Where is the string?  
 Select the character string you want to search and try git grep!  
