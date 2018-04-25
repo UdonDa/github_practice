@@ -28,9 +28,14 @@ Let's use GitHub!!
 As an example, we create an HTTP REQUEST specifying the municipality from the latitude and longitude.
 So, let's step through the necessary steps one by one!!
 1. Confirm API specification  
-[https://www.finds.jp/rgeocode/index.html.ja](https://www.finds.jp/rgeocode/index.html.ja)
+[https://www.finds.jp/rgeocode/index.html.ja](https://www.finds.jp/rgeocode/index.html.ja)  
+[#1](https://github.com/UdonDa/github_practice/issues/1)  
+
 2. Send a request using Python  
+[#2](https://github.com/UdonDa/github_practice/issues/2)  
 
 3. Parsing the value we want  
+[#4](https://github.com/UdonDa/github_practice/issues/4)  
 
-
+4. Pass arguments from the coin draw  
+[#6](https://github.com/UdonDa/github_practice/issues/6)
